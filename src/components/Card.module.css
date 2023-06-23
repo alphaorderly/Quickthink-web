@@ -1,0 +1,58 @@
+.cardDiv {
+    border: 1.5px black solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.titleDiv {
+    margin: 0px 10px;
+    padding: 0px 20px;
+    background-color: #D9D9D9AA;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.articleDiv {
+    margin: 10px 10px 0px 10px;
+    padding: 20px;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    background-color: #D9D9D9AA;
+}
+
+.hashtagsDiv {
+    padding: 5px 10px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.hashtag {
+    padding-left: 10px;
+    line-height: 0px;
+}
+
+.statDiv {
+    flex-direction: row;
+    display: flex;
+    padding: 0px 10px 0px 10px;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.statIcon {
+    text-align: center;
+}

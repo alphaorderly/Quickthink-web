@@ -1,0 +1,129 @@
+.backdrop {
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gptDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 0px transparent solid;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 1000px;
+    height: 800px;
+    min-height: 600px; 
+}
+
+.topBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topClose {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.chatDiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    background-color: #F5F5F5AA;
+    box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow-y:scroll;
+}
+
+.singleQnaDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionDiv {
+    max-width: 400px;
+    align-self: flex-end;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.answerDiv {
+    align-self: flex-start;
+    max-width: 600px;
+}
+
+.answer {
+    margin: 10px;
+    padding: 5px 15px;
+    background-color: #00A67E60;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.cardWrite {
+    border: 0px;
+    margin: 0px 0px 0px 10px;
+    background-color: #0057FFAA;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chatInputDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.chatInput {
+    margin: 10px 10px 0px 0px;
+    background-color: white;
+    border: #FFF;
+    box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 20px;
+    width: 800px;
+    border-radius: 10px;
+}
+
+.chatInput:focus {
+    outline: none;
+}
+
+.chatButton {
+    margin: 10px 0px 0px 0px;
+    flex: 1;
+    background-color: #86AFFF;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 4px 4px 20px 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chatButton:hover {
+    background-color: #387aff;
+}

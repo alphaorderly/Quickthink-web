@@ -1,0 +1,42 @@
+.spinnerDiv {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hashtagsDiv {
+    width: 200px;
+}
+
+.hashtag {
+    font-weight: bold;
+}
+
+.cardsDiv {
+    display: flex;
+    flex-direction: row;
+    width: 950px;
+    flex-wrap: wrap;
+}
+
+.emptyDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    justify-content: center;
+}
+
+.emptyText {
+    font-size: 24px;
+    font-weight: bold;
+}

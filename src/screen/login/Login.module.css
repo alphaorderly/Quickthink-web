@@ -1,0 +1,23 @@
+.mainDiv {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainLogo {
+    height: 60px;
+    -webkit-user-drag: none;
+}
+
+.mainText {
+    margin-top: 50px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.loginImage {
+    height: 50px;
+    cursor: pointer;
+}
