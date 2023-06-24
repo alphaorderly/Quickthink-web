@@ -30,7 +30,7 @@ const Callback = () => {
                     code: code,
                     client_id: process.env.REACT_APP_CLIENT_ID,
                     client_secret : process.env.REACT_APP_CLIENT_SECRET,
-                    redirect_uri: redirect_url,
+                    redirect_uri: process.env.REACT_APP_REDIRECT_URL,
                     grant_type: "authorization_code"
                 },
                 headers: {
