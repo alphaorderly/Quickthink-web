@@ -48,7 +48,6 @@ const CardWriting = () => {
             latestReviewDate: new Date(),
             reviewCount: 0,
         }
-        console.log(JSON.stringify(cardData))
         await Backend('card/write', {
             method: 'POST',
             headers: {
@@ -203,7 +202,6 @@ const CardWriting = () => {
                         } else {
                             fetchCard();
                             navigate('/main', {replace: false});
-                            navigate(0);
                         }
                     }}
                     onTouchStart={() => {
