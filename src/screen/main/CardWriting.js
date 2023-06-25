@@ -21,8 +21,6 @@ const CardWriting = () => {
 
     const {state} = useLocation();
 
-    console.log(state);
-
     const [value, setValue] = useState(state == null ? "" : state.content);
 
     const [tip, setTip] = useState(false);
@@ -38,6 +36,8 @@ const CardWriting = () => {
     const titleRef = useRef(null);
 
     const resetUser = useResetRecoilState(User);
+
+    const editorDivRef = useRef(null);
 
     const fetchCard = async () => {
         const cardData = {
@@ -78,25 +78,24 @@ const CardWriting = () => {
                         }}
                     />
                 </div>
+                {
+                    !tip
+                    ?
+                    <div>
+                        <p onClick={() => setTip(true)} style={{cursor: 'pointer', color: 'grey'}} className={Styles.katexGuide}>작성 팁 보기</p>
+                    </div>
+                    :
+                    <div>
+                        <p onClick={() => setTip(false)} style={{cursor: 'pointer', color: 'grey'}} className={Styles.katexGuide}>작성 팁 가리기 : 수식 입력을 위해선 `$$수식$$` 자세한 내용은 <a target="_blank" href='https://cheris8.github.io/etc/MD-LaTex/'>이곳</a>을 참조해 주세요.</p>
+                    </div>
+                }
                 <div className={Styles.editorDiv}>
-                    {
-                        !tip
-                        ?
-                        <div>
-                            <p onClick={() => setTip(true)} style={{cursor: 'pointer', color: 'grey'}} className={Styles.katexGuide}>작성 팁 보기</p>
-                        </div>
-                        :
-                        <div>
-                            <p onClick={() => setTip(false)} style={{cursor: 'pointer', color: 'grey'}} className={Styles.katexGuide}>작성 팁 가리기</p>
-                            <p className={Styles.katexGuide}>수식 입력하기 : `$$수식$$` 자세한 내용은 <a target="_blank" href='https://cheris8.github.io/etc/MD-LaTex/'>이곳</a>을 참조해 주세요.</p>
-                            <p className={Styles.katexGuide}>스페이스바 3번 입력으로 줄바꿈을 할수 있습니다.</p>
-                        </div>
-                    }
                     <MDEditor
                         value={value}
                         onChange={setValue}
-                        className={Styles.editor}
                         style={{ whiteSpace: 'pre-wrap' }}
+                        height="90%"
+                        visibleDragbar={false}
                         previewOptions={{
                             rehypePlugins: [[rehypeSanitize]],
                             components: {
@@ -163,6 +162,7 @@ const CardWriting = () => {
                                 ref={newHashtagRef}
                                 className={Styles.bottomHashtagAdd} 
                                 size={10}
+                                autoFocus={true}
                                 onKeyDown={(k) => {
                                     if(k.key == "Enter") {
                                         if(hashtags.indexOf(newHashtagRef.current.value) != -1) {

@@ -125,8 +125,9 @@ const CardEditing = () => {
                     <MDEditor
                         value={value}
                         onChange={setValue}
-                        className={Styles.editor}
                         style={{ whiteSpace: 'pre-wrap' }}
+                        height="90%"
+                        visibleDragbar={false}
                         previewOptions={{
                             rehypePlugins: [[rehypeSanitize]],
                             components: {
@@ -193,6 +194,7 @@ const CardEditing = () => {
                                 ref={newHashtagRef}
                                 className={Styles.bottomHashtagAdd} 
                                 size={10}
+                                autoFocus={true}
                                 onKeyDown={(k) => {
                                     if(k.key == "Enter") {
                                         if(hashtags.indexOf(newHashtagRef.current.value) != -1) {

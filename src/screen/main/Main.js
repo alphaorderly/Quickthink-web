@@ -67,17 +67,6 @@ const Main = () => {
                     <img src={user.profilePicture} className={Styles.topProfilePicture}/>
                     <p className={Styles.topProfilePictureName}>{user.googleName}</p>
                 </div>
-                <div 
-                    className={Styles.topChatGPTDiv}
-                    onClick={
-                        () => {
-                            navigate('/main/chatgpt', {replace: true})
-                        }
-                    }
-                >
-                    <img src={ChatGPT} className={Styles.topChatGPTLogo}/>
-                    <p className={Styles.topChatGPTText}>CHATGPT에게 물어보기</p>
-                </div>
             </div>
                 <Routes>
                     <Route
