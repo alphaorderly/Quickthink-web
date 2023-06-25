@@ -40,6 +40,69 @@ const CardEditing = () => {
 
     const resetUser = useResetRecoilState(User);
 
+    const insertToTextArea = (intsertString) => {
+        const textarea = document.querySelector('textarea');
+        if (!textarea) {
+          return null;
+        }
+      
+        let sentence = textarea.value;
+        const len = sentence.length;
+        const pos = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+      
+        const front = sentence.slice(0, pos);
+        const back = sentence.slice(pos, len);
+      
+        sentence = front + intsertString + back;
+      
+        textarea.value = sentence;
+        textarea.selectionEnd = end + intsertString.length;
+      
+        return sentence;
+      };
+
+    const onImagePasted = async (dataTransfer, setMarkdown) => {
+        const files = [];
+        for (let index = 0; index < dataTransfer.items.length; index += 1) {
+          const file = dataTransfer.files.item(index);
+          if (file) {
+            files.push(file);
+          }
+        }
+
+        await Promise.all(
+          files.map(async (file) => {
+
+            const formData = new FormData()
+            formData.append('file',file)
+
+            const data = await Backend('card/image', {
+                method: 'POST',
+                headers: {
+                    accessToken: user.token,
+                    'Content-Type': 'multipart/form-data',
+                },
+                data: formData
+            }).catch(err => {
+                if(err.response.status == 401) resetUser();
+                if(err.response.status == 400) alert("잘못된 요청을 전송했습니다!");
+            });
+
+            const url = data.data;
+
+            if(url === "") return;
+
+            const insertedMarkdown = insertToTextArea(`![](${url})`);
+            if (!insertedMarkdown) {
+              return;
+            }
+
+            setMarkdown(insertedMarkdown);
+          }),
+        );
+      };
+
     useEffect(() => {
         fetchCard();
     }, [])
@@ -128,6 +191,14 @@ const CardEditing = () => {
                         style={{ whiteSpace: 'pre-wrap' }}
                         height="90%"
                         visibleDragbar={false}
+                        onPaste={async (event) => {
+                            event.preventDefault();
+                            await onImagePasted(event.clipboardData, setValue);
+                        }}
+                        onDrop={async (event) => {
+                            event.preventDefault();
+                            await onImagePasted(event.dataTransfer, setValue);
+                        }}
                         previewOptions={{
                             rehypePlugins: [[rehypeSanitize]],
                             components: {
@@ -233,16 +304,14 @@ const CardEditing = () => {
                         if(titleRef.current.value == "" || value == "") {
                             alert('제목과 글은 빈칸이여선 안됩니다.');
                         } else {
-                            putCard();
-                            navigate('/main', {replace: false});
+                            putCard().then(() => navigate('/main', {replace: false}));
                         }
                     }}
                     onTouchStart={() => {
                         if(titleRef.current.value == "" || value == "") {
                             alert('제목과 글은 빈칸이여선 안됩니다.');
                         } else {
-                            putCard();
-                            navigate('/main', {replace: false});
+                            putCard().then(() => navigate('/main', {replace: false}));
                         }
                     }}
                 >
