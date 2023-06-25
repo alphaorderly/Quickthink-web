@@ -74,7 +74,8 @@
 
 .topProfilePicture {
     width: 44px;
-    padding-right: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
 }
 
 .topProfilePictureName {
