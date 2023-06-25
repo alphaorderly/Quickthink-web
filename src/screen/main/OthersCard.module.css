@@ -6,11 +6,14 @@
 
 .resultDiv {
     cursor: pointer;
-    width: 80vw;
-    border: 1px black solid;
+    width: 300px;
     margin: 50px;
     padding: 10px;
     border-radius: 10px;
+    background-color: #05030511;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    align-self: flex-start;
+    margin-left: 20%;
 }
 
 .rowDiv {

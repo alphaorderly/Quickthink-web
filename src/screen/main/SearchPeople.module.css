@@ -2,15 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0% 20% 0% 20%;
 }
 
 .resultDiv {
     cursor: pointer;
-    width: 80vw;
-    border: 1px black solid;
+    width: 300px;
     margin: 50px;
     padding: 10px;
     border-radius: 10px;
+    background-color: #05030511;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .rowDiv {
@@ -22,6 +24,7 @@
 .profileImage {
     height: 48px;
     margin-right: 30px;
+    border-radius: 10px;
 }
 
 .name{
